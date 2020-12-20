@@ -13,8 +13,9 @@ namespace ScrabbleMaker
     public partial class Form1 : Form
     {
 
-        ScrabbleBoard GameBoard;
-        ScrabbleGame Game;
+        private ScrabbleBoard GameBoard;
+        private ScrabbleGame Game;
+        private Label[,] VisualBoard;  //reminder if multiple game boards are added eventually to dispose of all labels in here
 
         public Form1()
         {
@@ -25,8 +26,7 @@ namespace ScrabbleMaker
         }
         private void CreditsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("SpellCast Scrabble Generator\nMade by Legend#4270",
-                "Credits", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            NotImplemented();
         }
         private void PointValuesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -48,10 +48,39 @@ namespace ScrabbleMaker
             NotImplemented();
         }
 
+
+
+        /*
+         * Non-auto generated helper methods
+         */
+
         //initializes the scrabble board to contain all word and letter scores
         private void InitializeGameBoard()
         {
+
             GameBoard = new ScrabbleBoard();
+            VisualBoard = new Label[15, 15];
+            int x = 130;
+            int y = 70;
+
+            for (int i = 0; i < 15; i++)
+            {
+                for (int j = 0; j < 15; j++)
+                {
+                    Label l = new Label();
+                    l.Location = new Point(x, y);
+                    l.Size = new Size(20, 20);
+                    l.AutoSize = false;
+                    l.BackColor = GameBoard.Board[i, j].CellColor;
+                    l.BorderStyle = BorderStyle.FixedSingle;
+
+                    Controls.Add(l);
+                    VisualBoard[i, j] = l;
+                    x += 20;
+                }
+                y += 20;
+                x = 130;
+            }
         }
 
         //initializes the scrabble game dictionary
