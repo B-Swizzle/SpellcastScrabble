@@ -81,21 +81,12 @@ namespace ScrabbleMaker
                 y += 20;
                 x = 130;
             }
-
-            GameBorder.Visible = false;
         }
 
         //initializes the scrabble game dictionary
         private void InitializeGame()
         {
-            try
-            {
-                Game = new ScrabbleGame();
-            }
-            catch (InvalidSettingsException e)
-            {
-                MessageBox.Show(e.Message, "Error occurred during game initialization.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Game = new ScrabbleGame();
         }
 
         //debug and not implemented method placeholder
