@@ -16,6 +16,7 @@ namespace ScrabbleMaker
         private ScrabbleBoard GameBoard;
         private ScrabbleGame Game;
         private Label[,] VisualBoard;  //reminder if multiple game boards are added eventually to dispose of all labels in here
+        private char[] tiles;
 
         public Form1()
         {
@@ -47,7 +48,22 @@ namespace ScrabbleMaker
         {
             NotImplemented();
         }
-
+        private void GenerateAnagramBtn_Click(object sender, EventArgs e)
+        {
+            NotImplemented();
+        }
+        private void TileInputButton_Click(object sender, EventArgs e)
+        {
+            NotImplemented();
+        }
+        private void GenerateBestMoveBtn_Click(object sender, EventArgs e)
+        {
+            NotImplemented();
+        }
+        private void ResetBoardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NotImplemented();
+        }
 
 
         /*
@@ -73,6 +89,7 @@ namespace ScrabbleMaker
                     l.AutoSize = false;
                     l.BackColor = GameBoard.Board[i, j].CellColor;
                     l.BorderStyle = BorderStyle.FixedSingle;
+                    l.Click += new EventHandler(AddMove);
 
                     Controls.Add(l);
                     VisualBoard[i, j] = l;
@@ -96,6 +113,12 @@ namespace ScrabbleMaker
             {
                 MessageBox.Show(e.Message, "Error occurred during game initialization.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void AddMove(object sender, EventArgs e)
+        {
+            Label tile = sender as Label;
+            NotImplemented();
         }
 
         //debug and not implemented method placeholder
